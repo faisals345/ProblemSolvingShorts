@@ -56,6 +56,23 @@ void printLL(node * head){
     cout<<endl;
 }
 
+void insertAfter(node * prev,int val){
+    if(prev==NULL){
+        cout<<"No value found";
+        return;
+    }
+
+    node *n = new node(val);
+
+    if(prev->next==NULL){
+        prev->next=n;
+        return;
+    }
+    
+    n->next=prev->next;
+    prev->next=n;
+}
+
 
 int main(){
 
@@ -67,9 +84,11 @@ int main(){
     // insertBegin(head,24);
     // insertBegin(head,30);
     insertEnd(head,55);
-    insertBegin(head,40);
-    insertBegin(head,24);
-    insertBegin(head,30);
+    // insertBegin(head,40);
+    // insertBegin(head,24);
+    // insertBegin(head,30);
+    insertAfter(head,20);
+    insertAfter(head->next,21);
 
 
     printLL(head);
