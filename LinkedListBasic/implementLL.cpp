@@ -29,6 +29,20 @@ void insertBegin(node * &head,int x){
 
 }
 
+void insertEnd(node * &head,int val){
+    node *last = new node(val);
+    node *curr=head;
+    if(head==NULL){
+        head=last;
+        return;
+    }
+    while(curr->next!=NULL){
+        curr=curr->next;
+    }
+    curr->next=last;
+    return;
+}
+
 void printLL(node * head){
     if(head==NULL){
         cout<<"LL is NULL"<<endl;
@@ -46,9 +60,13 @@ void printLL(node * head){
 int main(){
 
     node *head = NULL;
-    insertBegin(head,20);
-    insertBegin(head,2);
-    insertBegin(head,30);
+    // insertBegin(head,20);
+    // insertBegin(head,2);
+    // insertBegin(head,30);
+    // insertBegin(head,40);
+    // insertBegin(head,24);
+    // insertBegin(head,30);
+    insertEnd(head,55);
     insertBegin(head,40);
     insertBegin(head,24);
     insertBegin(head,30);
