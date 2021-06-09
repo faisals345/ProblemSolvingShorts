@@ -1,0 +1,28 @@
+    while(fast!=NULL && fast->next!=NULL){
+            fast=fast->next->next;
+            slow=slow->next;
+    
+            if(fast==slow){
+                Node *ptr=head;
+                Node *prev=slow;
+                
+                // case when the starting loop is head
+
+                if(slow==ptr){
+                    while(ptr->next!=slow){
+                        ptr=ptr->next;
+                    }
+                    ptr->next=NULL;
+                    return;
+                }
+                ptr=head;
+                // rest of the cases where loop does not start from head
+                
+                while(slow!=ptr){
+                    ptr=ptr->next;
+                    prev=slow;
+                    slow=slow->next;
+                }
+                prev->next=NULL;
+            }
+        }
