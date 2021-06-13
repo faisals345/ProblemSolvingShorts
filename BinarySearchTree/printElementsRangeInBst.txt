@@ -1,0 +1,38 @@
+vector<int> printNearNodes(Node *root, int low, int high)
+{
+  // your code goes here   
+  vector<int> r;
+  
+  stack<Node *> st;
+ 
+  Node * p=root;
+    
+    st.push(p);
+    unordered_set<Node*> us;
+    
+   // us.insert(root);
+    
+        while (!st.empty()) {
+            
+            auto p = st.top();
+            
+            if (p->left != NULL && (!us.count(p)) && p->data > low) {
+                st.push(p->left); // push left nodes
+                us.insert(p); // remember the node
+            } else {
+                
+                st.pop();
+                if(p->data>=low && p->data<=high)
+                r.push_back(p->data);
+                
+                if (p->right != NULL && p->data< high) {
+                    st.push(p->right); // push right nodes
+                }
+            }
+        }
+        return r;
+    
+  
+
+  
+}
