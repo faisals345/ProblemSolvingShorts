@@ -8,7 +8,7 @@ public:
     int data;
     node * next;
 
-    node(int data){
+    node(int data){ 
        this->data=data;
         next=NULL;
     }

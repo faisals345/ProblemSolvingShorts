@@ -34,64 +34,66 @@ node *buildTree()
     return n;
 }
 
-void printNodesAtK(node * root,int k){
+void printNodesAtK(node *root, int k)
+{
 
-    if(root==NULL){
-        return ;
-    }
-
-    if(k==0){
-        cout<< root->data<<" ";
+    if (root == NULL)
+    {
         return;
     }
 
-    printNodesAtK(root->left,k-1);
-    printNodesAtK(root->right,k-1);
+    if (k == 0)
+    {
+        cout << root->data << " ";
+        return;
+    }
 
-
+    printNodesAtK(root->left, k - 1);
+    printNodesAtK(root->right, k - 1);
 }
 
-void printNodes(node * root,int key,int &dist,int k){
+void printNodes(node *root, int key, int &dist, int k)
+{
 
-    if(root==NULL){
+    if (root == NULL)
+    {
         return;
     }
 
-    if(key==root->data){
-        dist=0;
-        printNodesAtK(root,k);
+    if (key == root->data)
+    {
+        dist = 0;
+        printNodesAtK(root, k);
         return;
     }
-    int ldist=-1,rdist=-1;
-    printNodes(root->left,key,ldist,k);
-    printNodes(root->right,key,rdist,k);
+    int ldist = -1, rdist = -1;
+    printNodes(root->left, key, ldist, k);
+    printNodes(root->right, key, rdist, k);
 
-    if(ldist!=-1){
-        dist=ldist+1;
-        if(k-dist==0){
-            cout<<root->data;
+    if (ldist != -1)
+    {
+        dist = ldist + 1;
+        if (k - dist == 0)
+        {
+            cout << root->data;
         }
-        else if(k>dist)
-          printNodesAtK(root->right,k-dist-1);
+        else if (k > dist)
+            printNodesAtK(root->right, k - dist - 1);
     }
 
-     if(rdist!=-1){
-        dist=rdist+1;
-          if(k-dist==0){
-            cout<<root->data;
+    if (rdist != -1)
+    {
+        dist = rdist + 1;
+        if (k - dist == 0)
+        {
+            cout << root->data;
         }
-        else if(k>dist)
-          printNodesAtK(root->left,k-dist-1);
+        else if (k > dist)
+            printNodesAtK(root->left, k - dist - 1);
     }
 
     return;
-
-
-
 }
-
-
-
 
 int main()
 {

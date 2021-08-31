@@ -35,33 +35,23 @@ node *buildTree()
 }
 int ans=0;
 
-int maxDiameter(node* root){
+int maxDiameter(node *root)
+{
 
-    if(root==NULL){
+    if (root == NULL)
+    {
         return 0;
-
     }
 
+    int h1 = maxDiameter(root->left);
+    int h2 = maxDiameter(root->right);
 
-    int h1=maxDiameter(root->left);
-    int h2=maxDiameter(root->right);
-
-    if(h1+h2+1>ans){
-        ans=h1+h2+1;
+    if (h1 + h2 + 1 > ans)
+    {
+        ans = h1 + h2 + 1;
     }
-    return max(h1,h2)+1;
-
-
-
-
-
-
+    return max(h1, h2) + 1;
 }
-
-
-
-
-
 
 int main()
 {

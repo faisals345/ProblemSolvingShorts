@@ -58,10 +58,11 @@ void dfs__(vector<int> ar[],int node,map<int,bool> &visited){
 
 void dfsHelper(vector<int> ar[],int V,int src){
     map<int,bool> visited;
+
     for(int i=0;i<V;i++){
         visited[i]=false;
     }
-    visited[src]=true;
+    // visited[src]=true;
   
     dfs__(ar,src,visited);
 

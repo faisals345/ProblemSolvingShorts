@@ -35,6 +35,7 @@ node *buildTree()
 }
 
 int maxLevel=0;
+
 void leftView(node* root,int currLevel){
 
     if(root==NULL){
